@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes - FUNATO Campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+
+<div class="student-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar">U</div>
+      <div><strong>Udom</strong><br><small>B.Sc Computer Science</small></div>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a href="courses.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Courses</a>
+      <a href="lecturers.html" class="sidebar-link"><i class="fa-solid fa-chalkboard-user"></i> Lecturers</a>
+      <a href="gpa.html" class="sidebar-link"><i class="fa-solid fa-calculator"></i> GPA Calculator</a>
+      <a href="notes.html" class="sidebar-link active"><i class="fa-solid fa-note-sticky"></i> Notes</a>
+      <a href="timetable.html" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> Timetable</a>
+      <a href="profile.html" class="sidebar-link"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="logout.html" class="sidebar-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" placeholder="Search notes..." id="noteSearch" aria-label="Search notes">
+      </div>
+      <div class="notification" role="button" tabindex="0" aria-label="Notifications">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Student Notes</h1>
+      <p>Capture ideas, track assignments, and organize your study plan.</p>
+    </div>
+
+    <!-- NOTES CONTAINER -->
+    <div class="notes-container">
+      
+      <!-- CREATE NOTE FORM -->
+      <div class="note-form-card">
+        <h3>Add New Note</h3>
+        <form id="noteForm">
+          <div class="note-input-row">
+            <input type="text" id="noteTitle" class="form-input" placeholder="Note title (e.g., CYB 103 Assignment)" maxlength="80" required>
+            <select id="noteCategory" class="form-select" required>
+              <option value="general">📌 General</option>
+              <option value="assignment">📝 Assignment</option>
+              <option value="exam">📚 Exam Prep</option>
+              <option value="reminder">⏰ Reminder</option>
+            </select>
+          </div>
+          <textarea id="noteContent" class="form-textarea" rows="5" placeholder="Write your note here..." maxlength="1500" required></textarea>
+          <div class="char-counter" id="charCounter">0/1500</div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-floppy-disk"></i> Save Note
+          </button>
+        </form>
+      </div>
+
+      <!-- NOTES GRID -->
+      <div class="notes-grid" id="notesGrid">
+        <!-- Notes rendered by JS -->
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <i class="fa-regular fa-clipboard"></i>
+        <h3>No notes yet</h3>
+        <p>Start by adding your first study note, assignment reminder, or lecture summary above.</p>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="/assets/js/notes.js"></script>
+</body>
+</html>

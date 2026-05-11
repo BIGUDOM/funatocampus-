@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funato Campus - Students Signup</title>
+    <!-- ADD THIS INSIDE <head> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/auth.css">
+</head>
+<body>
+    <div class="card">
+        <h2 style="text-align:center;margin-bottom:2rem;">Student Registration</h2>
+   <!-- Add this inside the form, before the closing </form> tag -->
+<div class="password-strength">
+  <div class="password-strength-bar"></div>
+</div>
+
+
+
+<!-- Add data-redirect for post-submit navigation -->
+<form id="signupForm" data-redirect="dashboard.html">
+        <div class="form-group"><input type="text" id="fullName" class="form-input" placeholder=" " required><label for="fullName" class="form-label">Surname & Other Names</label><span class="form-error">Required</span></div>
+        <div class="form-group"><input type="email" id="email" class="form-input" placeholder=" " required><label for="email" class="form-label">Email</label><span class="form-error">Valid email</span></div>
+          <div class="form-group"><select id="level" class="form-select" required><option value="" disabled selected></option><option value="100L">100L</option><option value="200L">200L</option><option value="300L">300L</option><option value="400L">400L</option><option value="500L">500L</option></select><label for="level" class="form-label">Current Level</label><span class="form-error">Select</span></div>
+        <div class="form-group"><input type="text" id="matricNo" class="form-input" placeholder=" " required><label for="matricNo" class="form-label">Matric No</label><span class="form-error">Format: U/DEPT/YEAR/001</span></div>
+        <div class="form-group"><select id="faculty" class="form-select" required><option value="" disabled selected></option></select><label for="faculty" class="form-label">Faculty</label><span class="form-error">Select</span></div>
+        <div class="form-group"><select id="dpt" class="form-select" required><option value="" disabled selected></option></select><label for="department" class="form-label">Department</label><span class="form-error">Select</span></div>
+        <div class="form-group"><textarea id="bio" class="form-text" placeholder=" " required></textarea><label for="bio" class="form-label">Bio</label><span class="form-error">Required</span></div>
+     <!-- PASSWORD FIELD -->
+
+<div class="form-group password-group">
+
+  <input
+    type="password"
+    id="password"
+    class="form-input"
+    placeholder=" "
+    required
+    minlength="6"
+  >
+
+  <label for="password" class="form-label">
+    Password
+  </label>
+
+  <!-- EYE ICON -->
+
+  <span class="toggle-password" id="togglePassword">
+    👁️
+  </span>
+
+  <span class="form-error">
+    Min 6 chars
+  </span>
+
+</div>
+
+       <!-- Fix the login link typo -->
+<p style="text-align:center;margin-top:1rem;color:var(--muted)">
+  Already registered? <a href="login.html" style="color:var(--accent)">Login</a>
+</p>
+        <button type="submit" id="registerBtn">Register</button>
+        </form>
+    </div>
+
+
+    <script src="/assets/js/auth.js"></script>
+</body>
+</html>

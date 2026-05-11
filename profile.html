@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - FUNATO Campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+
+<div class="student-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar">U</div>
+      <div><strong>Udom</strong><br><small>B.Sc Computer Science</small></div>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a href="courses.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Courses</a>
+      <a href="lecturers.html" class="sidebar-link"><i class="fa-solid fa-chalkboard-user"></i> Lecturers</a>
+      <a href="gpa.html" class="sidebar-link"><i class="fa-solid fa-calculator"></i> GPA Calculator</a>
+      <a href="notes.html" class="sidebar-link"><i class="fa-solid fa-note-sticky"></i> Notes</a>
+      <a href="timetable.html" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> Timetable</a>
+      <a href="profile.html" class="sidebar-link active"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="logout.html" class="sidebar-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" placeholder="Search..." aria-label="Search">
+      </div>
+      <div class="notification" role="button" tabindex="0" aria-label="Notifications">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Student Profile</h1>
+      <p>Manage your personal information, academic details, and bio.</p>
+    </div>
+
+    <!-- PROFILE CONTAINER -->
+    <div class="profile-container">
+      
+      <!-- LEFT: AVATAR & STATS -->
+      <aside class="profile-sidebar">
+        <!-- Avatar Upload -->
+        <div class="avatar-wrapper">
+          <img src="" alt="Profile" class="profile-avatar" id="profileAvatar" style="display:none;">
+          <div class="profile-avatar" id="avatarPlaceholder">U</div>
+          <label class="avatar-overlay" for="avatarInput" title="Change photo">
+            <i class="fa-solid fa-camera"></i>
+          </label>
+          <input type="file" id="avatarInput" accept="image/*">
+        </div>
+
+        <!-- Name & Role -->
+        <h2 class="profile-name" id="displayName">Udom Blessing</h2>
+        <p class="profile-role">Student <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></p>
+
+        <!-- Quick Stats -->
+        <div class="profile-stats">
+          <div class="stat-item">
+            <span class="stat-label">Level</span>
+            <span class="stat-value">100L</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Faculty</span>
+            <span class="stat-value">Computing</span>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div style="display:flex;gap:0.5rem;justify-content:center;margin-top:1rem;">
+          <button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> ID Card</button>
+          <button class="btn btn-primary btn-sm"><i class="fa-solid fa-share"></i> Share</button>
+        </div>
+      </aside>
+
+      <!-- RIGHT: DETAILS & BIO -->
+      <div class="profile-content">
+        
+        <!-- Personal Info Card -->
+        <div class="info-card">
+          <h3><i class="fa-regular fa-id-card"></i> Personal Information</h3>
+          <div class="info-grid">
+            
+            <!-- Name -->
+            <div class="info-item" data-field="name">
+              <span class="info-label">Full Name</span>
+              <span class="info-value" id="nameDisplay">Udom Blessing</span>
+              <div class="edit-field" id="nameEdit">
+                <input type="text" value="Udom Blessing">
+              </div>
+            </div>
+            
+            <!-- Matric -->
+            <div class="info-item" data-field="matric">
+              <span class="info-label">Matric Number</span>
+              <span class="info-value" id="displayMatric">23/CSC/001</span>
+              <div class="edit-field" id="matricEdit">
+                <input type="text" value="23/CSC/001">
+              </div>
+            </div>
+            
+            <!-- Email -->
+            <div class="info-item" data-field="email">
+              <span class="info-label">Email Address</span>
+              <span class="info-value" id="displayEmail">student@email.com</span>
+              <div class="edit-field" id="emailEdit">
+                <input type="email" value="student@email.com">
+              </div>
+            </div>
+            
+            <!-- Level -->
+            <div class="info-item" data-field="level">
+              <span class="info-label">Academic Level</span>
+              <span class="info-value" id="displayLevel">100L</span>
+              <div class="edit-field" id="levelEdit">
+                <select>
+                  <option>100L</option><option>200L</option><option>300L</option><option>400L</option><option>500L</option>
+                </select>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Edit Actions -->
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm btn-edit" data-field="name"><i class="fa-solid fa-pen"></i> Edit</button>
+            <button class="btn btn-primary btn-sm btn-save" data-field="name" style="display:none;"><i class="fa-solid fa-check"></i> Save</button>
+            <button class="btn btn-outline btn-sm btn-cancel" data-field="name" style="display:none;">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Academic Info Card -->
+        <div class="info-card">
+          <h3><i class="fa-solid fa-graduation-cap"></i> Academic Details</h3>
+          <div class="info-grid">
+            
+            <!-- Department -->
+            <div class="info-item" data-field="department">
+              <span class="info-label">Department</span>
+              <span class="info-value" id="displayDept">Computer Science</span>
+              <div class="edit-field" id="deptEdit">
+                <select>
+                  <option>Computer Science</option><option>Cyber Security</option><option>Software Engineering</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Faculty -->
+            <div class="info-item" data-field="faculty">
+              <span class="info-label">Faculty</span>
+              <span class="info-value" id="displayFaculty">Computing</span>
+              <div class="edit-field" id="facultyEdit">
+                <select>
+                  <option>Computing</option><option>Science</option><option>Engineering</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Session -->
+            <div class="info-item" data-field="session">
+              <span class="info-label">Academic Session</span>
+              <span class="info-value" id="displaySession">2025/2026</span>
+              <div class="edit-field" id="sessionEdit">
+                <input type="text" value="2025/2026">
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm btn-edit" data-field="department"><i class="fa-solid fa-pen"></i> Edit</button>
+            <button class="btn btn-primary btn-sm btn-save" data-field="department" style="display:none;"><i class="fa-solid fa-check"></i> Save</button>
+            <button class="btn btn-outline btn-sm btn-cancel" data-field="department" style="display:none;">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Bio Card -->
+        <div class="info-card">
+          <h3><i class="fa-regular fa-user"></i> About Me</h3>
+          
+          <div class="bio-editor">
+            <div class="bio-display" id="bioDisplay">No bio added yet. Click edit to add one.</div>
+            <textarea class="bio-textarea" id="bioTextarea" maxlength="500" placeholder="Tell us about yourself, your goals, interests..."></textarea>
+            <div class="bio-counter" id="bioCounter">0/500</div>
+          </div>
+          
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm" id="bioEditBtn"><i class="fa-solid fa-pen"></i> Edit Bio</button>
+            <button class="btn btn-primary btn-sm" id="bioSaveBtn" style="display:none;"><i class="fa-solid fa-check"></i> Save Bio</button>
+            <button class="btn btn-outline btn-sm" id="bioCancelBtn" style="display:none;">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/assets/js/profile.js"></script>
+</body>
+</html>

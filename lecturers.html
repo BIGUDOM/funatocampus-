@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecturers - FUNATO Campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="/assets/css/lecturers.css">
+</head>
+<body>
+
+<div class="lecturers-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar">U</div>
+      <div><strong>Udom</strong><br><small>B.Sc Computer Science</small></div>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a href="courses.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Courses</a>
+      <a href="lecturers.html" class="sidebar-link active"><i class="fa-solid fa-chalkboard-user"></i> Lecturers</a>
+      <a href="gpa.html" class="sidebar-link"><i class="fa-solid fa-calculator"></i> GPA Calculator</a>
+      <a href="notes.html" class="sidebar-link"><i class="fa-solid fa-note-sticky"></i> Notes</a>
+      <a href="timetable.html" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> Timetable</a>
+      <a href="profile.html" class="sidebar-link"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="logout.html" class="sidebar-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" placeholder="Search lecturers, courses, departments..." aria-label="Search lecturers">
+      </div>
+      <div class="notification" role="button" tabindex="0" aria-label="Notifications">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Lecturers Board</h1>
+      <p>Connect with your instructors and academic advisors.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-bar">
+      <div class="filter-group">
+        <label for="departmentFilter">Department</label>
+        <select id="departmentFilter">
+          <option value="">All Departments</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Cyber Security">Cyber Security</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Physics">Physics</option>
+        </select>
+      </div>
+      <div class="filter-actions">
+        <button class="btn btn-outline" id="resetFilters">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Lecturers Grid -->
+    <div class="lecturers-grid">
+
+      <!-- Lecturer 1 -->
+      <div class="lecturer-card" data-department="Computer Science" data-email="j.ade@funato.edu.ng" data-office-hours="Mon-Wed, 10AM-1PM" data-bio="Dr. Ade specializes in database systems and distributed computing.">
+        <div class="lecturer-avatar">
+          <img src="lecturer1.jpg" alt="Dr. John Ade" onerror="this.parentElement.innerHTML='<span class=\'placeholder\'>J</span>'">
+        </div>
+        <h3 class="lecturer-name">Dr. John Ade</h3>
+        <p class="lecturer-title">Senior Lecturer</p>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+        </div>
+        <div class="lecturer-meta">
+          <p><i class="fa-solid fa-building"></i> Computer Science</p>
+          <p><i class="fa-solid fa-book"></i> CSC 202, CSC 301</p>
+        </div>
+        <div class="lecturer-tags">
+          <span class="lecturer-tag dept">Computer Science</span>
+          <span class="lecturer-tag status">Available</span>
+          <span class="lecturer-tag rating">★ 4.8</span>
+        </div>
+        <p class="office-hours"><i class="fa-regular fa-clock"></i> Mon-Wed, 10AM-1PM</p>
+        <div class="lecturer-actions">
+          <button class="btn btn-outline" data-action="profile"><i class="fa-regular fa-user"></i> Profile</button>
+          <button class="btn btn-primary" data-action="email"><i class="fa-regular fa-envelope"></i> Email</button>
+        </div>
+      </div>
+
+      <!-- Lecturer 2 -->
+      <div class="lecturer-card" data-department="Cyber Security" data-email="g.daniel@funato.edu.ng" data-office-hours="Tue-Thu, 2PM-4PM" data-bio="Mrs. Daniel focuses on ethical hacking, network security, and digital forensics.">
+        <div class="lecturer-avatar">
+          <img src="lecturer2.jpg" alt="Mrs. Grace Daniel" onerror="this.parentElement.innerHTML='<span class=\'placeholder\'>G</span>'">
+        </div>
+        <h3 class="lecturer-name">Mrs. Grace Daniel</h3>
+        <p class="lecturer-title">Lecturer II</p>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="lecturer-meta">
+          <p><i class="fa-solid fa-building"></i> Cyber Security</p>
+          <p><i class="fa-solid fa-book"></i> CYB 103, CYB 201</p>
+        </div>
+        <div class="lecturer-tags">
+          <span class="lecturer-tag dept">Cyber Security</span>
+          <span class="lecturer-tag status">Available</span>
+          <span class="lecturer-tag rating">★ 4.9</span>
+        </div>
+        <p class="office-hours"><i class="fa-regular fa-clock"></i> Tue-Thu, 2PM-4PM</p>
+        <div class="lecturer-actions">
+          <button class="btn btn-outline" data-action="profile"><i class="fa-regular fa-user"></i> Profile</button>
+          <button class="btn btn-primary" data-action="email"><i class="fa-regular fa-envelope"></i> Email</button>
+        </div>
+      </div>
+
+      <!-- Lecturer 3 -->
+      <div class="lecturer-card" data-department="Software Engineering" data-email="s.james@funato.edu.ng" data-office-hours="Fri, 9AM-12PM" data-bio="Prof. James leads research in agile methodologies, software architecture, and DevOps practices.">
+        <div class="lecturer-avatar">
+          <img src="lecturer3.jpg" alt="Prof. Samuel James" onerror="this.parentElement.innerHTML='<span class=\'placeholder\'>S</span>'">
+        </div>
+        <h3 class="lecturer-name">Prof. Samuel James</h3>
+        <p class="lecturer-title">Professor</p>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="lecturer-meta">
+          <p><i class="fa-solid fa-building"></i> Software Engineering</p>
+          <p><i class="fa-solid fa-book"></i> SWE 301, SWE 401</p>
+        </div>
+        <div class="lecturer-tags">
+          <span class="lecturer-tag dept">Software Engineering</span>
+          <span class="lecturer-tag status">Available</span>
+          <span class="lecturer-tag rating">★ 5.0</span>
+        </div>
+        <p class="office-hours"><i class="fa-regular fa-clock"></i> Fri, 9AM-12PM</p>
+        <div class="lecturer-actions">
+          <button class="btn btn-outline" data-action="profile"><i class="fa-regular fa-user"></i> Profile</button>
+          <button class="btn btn-primary" data-action="email"><i class="fa-regular fa-envelope"></i> Email</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state hidden">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h3>No lecturers found</h3>
+      <p>Try adjusting your search or filters to find the instructor you're looking for.</p>
+      <button class="btn btn-outline mt-2" id="resetFilters">
+        <i class="fa-solid fa-rotate-right"></i> Reset Filters
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<!-- Lecturer Detail Modal -->
+<div class="modal-overlay" id="lecturerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-avatar"><span class="placeholder">L</span></div>
+      <div class="modal-title">
+        <h3>Lecturer Name</h3>
+        <p>Title</p>
+      </div>
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section modal-meta">
+        <h4><i class="fa-solid fa-circle-info"></i> Contact Info</h4>
+        <!-- Populated by JS -->
+      </div>
+      <div class="modal-section modal-bio">
+        <h4><i class="fa-regular fa-user"></i> Biography</h4>
+        <p></p>
+      </div>
+      <div class="modal-section modal-courses">
+        <h4><i class="fa-solid fa-book-open"></i> Courses Taught</h4>
+        <ul></ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="modalEmail"><i class="fa-regular fa-envelope"></i> Send Email</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/lecturers.js"></script>
+</body>
+</html>

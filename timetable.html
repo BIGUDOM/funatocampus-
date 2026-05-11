@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timetable - FUNATO Campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+
+<div class="student-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar">U</div>
+      <div><strong>Udom</strong><br><small>B.Sc Computer Science</small></div>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a href="courses.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Courses</a>
+      <a href="lecturers.html" class="sidebar-link"><i class="fa-solid fa-chalkboard-user"></i> Lecturers</a>
+      <a href="gpa.html" class="sidebar-link"><i class="fa-solid fa-calculator"></i> GPA Calculator</a>
+      <a href="notes.html" class="sidebar-link"><i class="fa-solid fa-note-sticky"></i> Notes</a>
+      <a href="timetable.html" class="sidebar-link active"><i class="fa-solid fa-calendar-days"></i> Timetable</a>
+      <a href="profile.html" class="sidebar-link"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="logout.html" class="sidebar-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" placeholder="Search courses, venues, days..." aria-label="Search timetable">
+      </div>
+      <div class="notification" role="button" tabindex="0" aria-label="Notifications">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Lecture Timetable</h1>
+      <p>Plan your week, never miss a class. View schedules by day or search directly.</p>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="timetable-controls">
+      <div class="day-tabs">
+        <button class="day-tab active" data-day="All">All Days</button>
+        <button class="day-tab" data-day="Monday">Mon</button>
+        <button class="day-tab" data-day="Tuesday">Tue</button>
+        <button class="day-tab" data-day="Wednesday">Wed</button>
+        <button class="day-tab" data-day="Thursday">Thu</button>
+        <button class="day-tab" data-day="Friday">Fri</button>
+        <button class="day-tab" data-day="Saturday">Sat</button>
+      </div>
+      <button class="btn btn-outline" id="printTimetable">
+        <i class="fa-solid fa-print"></i> Print
+      </button>
+    </div>
+
+    <!-- DESKTOP TABLE VIEW -->
+    <div class="timetable-wrapper timetable-table-wrapper">
+      <table class="timetable-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Course</th>
+            <th>Time</th>
+            <th>Venue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-day="Monday">
+            <td><strong>Monday</strong></td>
+            <td>CYB 103 - Web Development</td>
+            <td><span class="time-badge"><i class="fa-regular fa-clock"></i> 9:00 AM - 11:00 AM</span></td>
+            <td><span class="venue-badge"><i class="fa-solid fa-location-dot"></i> ETF Hall</span></td>
+          </tr>
+          <tr data-day="Tuesday">
+            <td><strong>Tuesday</strong></td>
+            <td>MTH 101 - Calculus I</td>
+            <td><span class="time-badge"><i class="fa-regular fa-clock"></i> 10:00 AM - 12:00 PM</span></td>
+            <td><span class="venue-badge"><i class="fa-solid fa-location-dot"></i> Lecture Theatre 2</span></td>
+          </tr>
+          <tr data-day="Wednesday">
+            <td><strong>Wednesday</strong></td>
+            <td>GST 111 - Use of English</td>
+            <td><span class="time-badge"><i class="fa-regular fa-clock"></i> 8:00 AM - 10:00 AM</span></td>
+            <td><span class="venue-badge"><i class="fa-solid fa-location-dot"></i> CBN Hall</span></td>
+          </tr>
+          <tr data-day="Thursday">
+            <td><strong>Thursday</strong></td>
+            <td>CSC 102 - Programming Fundamentals</td>
+            <td><span class="time-badge"><i class="fa-regular fa-clock"></i> 12:00 PM - 2:00 PM</span></td>
+            <td><span class="venue-badge"><i class="fa-solid fa-location-dot"></i> Computer Lab A</span></td>
+          </tr>
+          <tr data-day="Friday">
+            <td><strong>Friday</strong></td>
+            <td>PHY 101 - Mechanics</td>
+            <td><span class="time-badge"><i class="fa-regular fa-clock"></i> 2:00 PM - 4:00 PM</span></td>
+            <td><span class="venue-badge"><i class="fa-solid fa-location-dot"></i> Science Lecture Hall</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MOBILE CARD VIEW -->
+    <div class="timetable-cards">
+      <div class="timetable-card" data-day="Monday">
+        <div class="card-header">
+          <span class="card-day">Monday</span>
+          <span class="card-time">9:00 AM - 11:00 AM</span>
+        </div>
+        <div class="card-course">CYB 103 - Web Development</div>
+        <div class="card-venue"><i class="fa-solid fa-location-dot"></i> ETF Hall</div>
+      </div>
+      <div class="timetable-card" data-day="Tuesday">
+        <div class="card-header">
+          <span class="card-day">Tuesday</span>
+          <span class="card-time">10:00 AM - 12:00 PM</span>
+        </div>
+        <div class="card-course">MTH 101 - Calculus I</div>
+        <div class="card-venue"><i class="fa-solid fa-location-dot"></i> Lecture Theatre 2</div>
+      </div>
+      <div class="timetable-card" data-day="Wednesday">
+        <div class="card-header">
+          <span class="card-day">Wednesday</span>
+          <span class="card-time">8:00 AM - 10:00 AM</span>
+        </div>
+        <div class="card-course">GST 111 - Use of English</div>
+        <div class="card-venue"><i class="fa-solid fa-location-dot"></i> CBN Hall</div>
+      </div>
+      <div class="timetable-card" data-day="Thursday">
+        <div class="card-header">
+          <span class="card-day">Thursday</span>
+          <span class="card-time">12:00 PM - 2:00 PM</span>
+        </div>
+        <div class="card-course">CSC 102 - Programming Fundamentals</div>
+        <div class="card-venue"><i class="fa-solid fa-location-dot"></i> Computer Lab A</div>
+      </div>
+      <div class="timetable-card" data-day="Friday">
+        <div class="card-header">
+          <span class="card-day">Friday</span>
+          <span class="card-time">2:00 PM - 4:00 PM</span>
+        </div>
+        <div class="card-course">PHY 101 - Mechanics</div>
+        <div class="card-venue"><i class="fa-solid fa-location-dot"></i> Science Lecture Hall</div>
+      </div>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div class="empty-state" id="emptyTimetable" style="display:none;">
+      <i class="fa-regular fa-calendar-xmark"></i>
+      <h3>No classes match your filters</h3>
+      <p>Try selecting a different day or adjusting your search terms.</p>
+      <button class="btn btn-outline mt-2" onclick="document.querySelector('.day-tab').click()">Show All Days</button>
+    </div>
+
+  </main>
+</div>
+
+<script src="/assets/js/time.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPA Calculator - FUNATO Campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+
+<div class="student-layout">
+  <!-- SIDEBAR (Same as other pages) -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar">U</div>
+      <div><strong>Udom</strong><br><small>B.Sc Computer Science</small></div>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a href="courses.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Courses</a>
+      <a href="lecturers.html" class="sidebar-link"><i class="fa-solid fa-chalkboard-user"></i> Lecturers</a>
+      <a href="gpa.html" class="sidebar-link active"><i class="fa-solid fa-calculator"></i> GPA Calculator</a>
+      <a href="notes.html" class="sidebar-link"><i class="fa-solid fa-note-sticky"></i> Notes</a>
+      <a href="timetable.html" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> Timetable</a>
+      <a href="profile.html" class="sidebar-link"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="logout.html" class="sidebar-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+      </div>
+      <div class="notification" role="button" tabindex="0" aria-label="Notifications">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>GPA Calculator</h1>
+      <p>Add your courses, track your academic performance, and plan your semester.</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="gpa-layout">
+      
+      <!-- LEFT: FORM -->
+      <div class="gpa-form-card">
+        <h3>Add Course</h3>
+        <form id="gpaForm">
+          <div class="form-row">
+            <label class="form-label" for="courseCode">Course Code</label>
+            <input type="text" id="courseCode" class="form-input" placeholder="e.g. CSC 101" required>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="courseUnit">Credit Unit</label>
+            <input type="number" id="courseUnit" class="form-input" placeholder="1-12" min="1" max="12" required>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="grade">Grade Obtained</label>
+            <select id="grade" class="form-select" required>
+              <option value="" disabled selected>Select Grade</option>
+              <option value="A">A (5.0)</option>
+              <option value="B">B (4.0)</option>
+              <option value="C">C (3.0)</option>
+              <option value="D">D (2.0)</option>
+              <option value="E">E (1.0)</option>
+              <option value="F">F (0.0)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-plus"></i> Add to Calculator
+          </button>
+        </form>
+      </div>
+
+      <!-- RIGHT: RESULTS & TABLE -->
+      <div class="gpa-results">
+        
+        <!-- GPA DISPLAY -->
+        <div class="gpa-display">
+          <div class="gpa-label">Cumulative GPA</div>
+          <div class="gpa-value">0.00</div>
+          <div class="gpa-scale">/ 5.00 Scale</div>
+          <div class="gpa-class">No Courses</div>
+          <div class="gpa-progress"><div class="gpa-progress-bar"></div></div>
+        </div>
+
+        <!-- COURSES TABLE -->
+        <div class="courses-table-card">
+          <h3>
+            Registered Courses
+            <span class="course-count">0</span>
+          </h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Course Code</th>
+                  <th>Units</th>
+                  <th>Grade</th>
+                  <th>Points</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="coursesTableBody">
+                <!-- Rows injected by JS -->
+              </tbody>
+            </table>
+            <div class="empty-table" id="emptyTable">
+              <i class="fa-solid fa-book-open"></i>
+              <p>No courses added yet.<br>Use the form to start calculating.</p>
+            </div>
+          </div>
+          <div class="table-footer">
+            <button class="btn btn-outline" id="clearAll"><i class="fa-solid fa-trash-can"></i> Clear All</button>
+            <button class="btn btn-primary" id="exportData"><i class="fa-solid fa-copy"></i> Copy Summary</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/assets/js/gpa.js"></script>
+</body>
+</html>

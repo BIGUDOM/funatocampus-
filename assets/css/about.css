@@ -1,0 +1,492 @@
+/* ============ ABOUT PAGE SPECIFIC STYLES ============ */
+
+/* Hero Section */
+.about-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.12), transparent 60%),
+              radial-gradient(ellipse at bottom, rgba(14, 165, 233, 0.08), transparent 60%);
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: fadeUp 1s ease-out both;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero-content .highlight {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-content .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px;
+  opacity: 0.6;
+  filter: blur(4px);
+}
+
+.animated-role-text {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.5rem 0 1.5rem;
+  min-height: 2.2rem;
+  animation: fadeUp 1s ease-out 0.2s both;
+}
+
+.hero-content p {
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  animation: fadeUp 1s ease-out 0.4s both;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+  animation: fadeUp 1s ease-out 0.6s both, pulse 3s infinite 1s;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+}
+
+.hero-btn i {
+  transition: var(--transition);
+}
+
+.hero-btn:hover i {
+  transform: translateX(4px);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4); }
+  50% { box-shadow: 0 8px 45px rgba(99, 102, 241, 0.7); }
+}
+
+/* Decorative floating elements */
+.about-hero::before,
+.about-hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.about-hero::before {
+  background: var(--primary);
+  top: -100px;
+  left: -100px;
+}
+
+.about-hero::after {
+  background: var(--accent);
+  bottom: -80px;
+  right: -80px;
+  animation-delay: -6s;
+}
+
+/* Main Container */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.section-title h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #fff, #cbd5e1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-title p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* School Section */
+.school-section {
+  margin-bottom: 5rem;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.school-text {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+.school-text p {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.school-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Vision & Mission Cards */
+.vision-mission {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.vision-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.vision-box:nth-child(1) { animation-delay: 0.1s; }
+.vision-box:nth-child(2) { animation-delay: 0.2s; }
+.vision-box:nth-child(3) { animation-delay: 0.3s; }
+
+.vision-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+
+.vision-box:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.vision-box:hover::before {
+  transform: scaleX(1);
+}
+
+.vision-box i {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.vision-box h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.vision-box p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Faculties Grid */
+.faculties {
+  margin-bottom: 5rem;
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.faculty-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.faculty-card:nth-child(1) { animation-delay: 0.1s; }
+.faculty-card:nth-child(2) { animation-delay: 0.2s; }
+.faculty-card:nth-child(3) { animation-delay: 0.3s; }
+
+.faculty-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.faculty-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.faculty-card:hover::after {
+  opacity: 1;
+}
+
+.faculty-card i {
+  font-size: 2.25rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: block;
+  transition: var(--transition);
+}
+
+.faculty-card:hover i {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--accent);
+}
+
+.faculty-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.faculty-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Statistics Section */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.05));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  animation: fadeUp 0.8s ease-out 0.4s both;
+}
+
+.stat-box {
+  padding: 1.5rem;
+}
+
+.stat-box h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-box p {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fff, #cbd5e1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.socials i {
+  font-size: 1.5rem;
+  color: var(--muted);
+  transition: var(--transition);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.socials i:hover {
+  color: var(--accent);
+  background: rgba(14, 165, 233, 0.15);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  color: var(--muted);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ============ SCROLL ANIMATIONS ============ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for grid items */
+.faculty-card.scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
+.faculty-card.scroll-reveal:nth-child(2) { transition-delay: 0.2s; }
+.faculty-card.scroll-reveal:nth-child(3) { transition-delay: 0.3s; }
+
+.vision-box.scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
+.vision-box.scroll-reveal:nth-child(2) { transition-delay: 0.2s; }
+.vision-box.scroll-reveal:nth-child(3) { transition-delay: 0.3s; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: 70vh;
+    padding: 5rem 1.5rem 3rem;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .about-container {
+    padding: 3rem 1.5rem;
+  }
+  
+  .school-text {
+    padding: 1.5rem;
+  }
+  
+  .vision-mission,
+  .faculty-grid,
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-box h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.25rem;
+  }
+  
+  .animated-role-text {
+    font-size: 1.25rem;
+  }
+  
+  .section-title h2 {
+    font-size: 1.75rem;
+  }
+}

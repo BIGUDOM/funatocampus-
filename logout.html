@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logout</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#0f172a;
+      color:white;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .logout-card{
+      width:100%;
+      max-width:420px;
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:2rem;
+      text-align:center;
+      box-shadow:0 20px 50px rgba(0,0,0,0.4);
+      animation:fadeIn 0.4s ease;
+    }
+
+    .logout-icon{
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:rgba(239,68,68,0.15);
+      color:#ef4444;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 1.5rem;
+      font-size:2rem;
+    }
+
+    h1{
+      font-size:1.8rem;
+      margin-bottom:0.5rem;
+    }
+
+    p{
+      color:#94a3b8;
+      margin-bottom:2rem;
+      line-height:1.6;
+    }
+
+    .btn-group{
+      display:flex;
+      gap:1rem;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border:none;
+      padding:0.9rem 1.4rem;
+      border-radius:12px;
+      font-size:0.95rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s ease;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:0.6rem;
+    }
+
+    .btn-danger{
+      background:#ef4444;
+      color:white;
+    }
+
+    .btn-danger:hover{
+      background:#dc2626;
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+    }
+
+    .btn-outline:hover{
+      background:rgba(255,255,255,0.08);
+    }
+
+    .success-box{
+      display:none;
+      margin-top:1.5rem;
+      padding:1rem;
+      border-radius:12px;
+      background:rgba(34,197,94,0.15);
+      border:1px solid rgba(34,197,94,0.3);
+      color:#86efac;
+      animation:fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="logout-card">
+
+    <div class="logout-icon">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </div>
+
+    <h1>Logout</h1>
+
+    <p>
+      Are you sure you want to logout from your student account?
+    </p>
+
+    <div class="btn-group">
+
+      <button class="btn btn-danger" id="logoutBtn">
+        <i class="fa-solid fa-power-off"></i>
+        Logout
+      </button>
+
+      <a href="dashboard.html" class="btn btn-outline">
+        <i class="fa-solid fa-arrow-left"></i>
+        Cancel
+      </a>
+
+    </div>
+
+    <div class="success-box" id="successBox">
+      <i class="fa-solid fa-circle-check"></i>
+      Logout successful. Redirecting to login...
+    </div>
+
+  </div>
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const logoutBtn =
+        document.getElementById("logoutBtn");
+
+      const successBox =
+        document.getElementById("successBox");
+
+      logoutBtn.addEventListener("click", () => {
+
+        /* ================= REMOVE LOGIN SESSION ================= */
+
+        localStorage.removeItem("currentUser");
+
+        localStorage.removeItem("loggedInUser");
+
+        sessionStorage.clear();
+
+        /* ================= SHOW SUCCESS ================= */
+
+        successBox.style.display = "block";
+
+        logoutBtn.disabled = true;
+
+        logoutBtn.innerHTML = `
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          Logging out...
+        `;
+
+        /* ================= REDIRECT ================= */
+
+        setTimeout(() => {
+
+          window.location.href = "login.html";
+
+        }, 2000);
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - FUNATO Campus</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/courses.css">
+</head>
+<body>
+
+<div class="courses-layout">
+
+  <!-- SIDEBAR (Same as Dashboard) -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar">U</div>
+      <div>
+        <strong>Udom</strong><br>
+        <small>B.Sc Computer Science</small>
+      </div>
+    </div>
+    
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+      </a>
+      <a href="courses.html" class="sidebar-link active">
+        <i class="fa-solid fa-book"></i> Courses
+      </a>
+      <a href="lecturers.html" class="sidebar-link">
+        <i class="fa-solid fa-chalkboard-user"></i> Lecturers
+      </a>
+      <a href="gpa.html" class="sidebar-link">
+        <i class="fa-solid fa-calculator"></i> GPA Calculator
+      </a>
+      <a href="notes.html" class="sidebar-link">
+        <i class="fa-solid fa-note-sticky"></i> Notes
+      </a>
+      <a href="timetable.html" class="sidebar-link">
+        <i class="fa-solid fa-calendar-days"></i> Timetable
+      </a>
+      <a href="profile.html" class="sidebar-link">
+        <i class="fa-solid fa-user"></i> Profile
+      </a>
+      <a href="logout.html" class="sidebar-link">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" placeholder="Search courses, codes, topics..." aria-label="Search courses">
+      </div>
+      <div class="notification" role="button" tabindex="0" aria-label="Notifications">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Available Courses</h1>
+      <p>Browse and enroll in courses for your program.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-bar">
+      <div class="filter-group">
+        <label for="departmentFilter">Department</label>
+        <select id="departmentFilter">
+          <option value="">All Departments</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Cyber Security">Cyber Security</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Physics">Physics</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="levelFilter">Level</label>
+        <select id="levelFilter">
+          <option value="">All Levels</option>
+          <option value="100">100 Level</option>
+          <option value="200">200 Level</option>
+          <option value="300">300 Level</option>
+          <option value="400">400 Level</option>
+        </select>
+      </div>
+      
+      <div class="filter-actions">
+        <button class="btn btn-outline" id="resetFilters">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Courses Grid View -->
+    <div class="courses-grid">
+      <!-- Computer Science -->
+      <div class="course-card" data-department="Computer Science" data-level="100">
+        <div class="course-header">
+          <span class="course-code">CSC 101</span>
+          <span class="course-units">3 Units</span>
+        </div>
+        <h3 class="course-title">Introduction to Computing</h3>
+        <p class="course-desc">Fundamentals of computer systems, hardware, software, and basic programming concepts.</p>
+        <div class="course-meta">
+          <span class="course-tag level">100L</span>
+          <span class="course-tag semester">First</span>
+          <span class="course-tag required">Required</span>
+        </div>
+        <div class="course-actions">
+          <button class="btn btn-outline" data-action="materials">
+            <i class="fa-solid fa-folder-open"></i> Materials
+          </button>
+          <button class="btn btn-primary" data-action="enroll">
+            <i class="fa-solid fa-plus"></i> Enroll
+          </button>
+        </div>
+      </div>
+
+      <div class="course-card" data-department="Computer Science" data-level="100">
+        <div class="course-header">
+          <span class="course-code">CSC 102</span>
+          <span class="course-units">3 Units</span>
+        </div>
+        <h3 class="course-title">Programming Fundamentals</h3>
+        <p class="course-desc">Learn programming basics using Python: variables, loops, functions, and problem-solving.</p>
+        <div class="course-meta">
+          <span class="course-tag level">100L</span>
+          <span class="course-tag semester">First</span>
+          <span class="course-tag required">Required</span>
+        </div>
+        <div class="course-actions">
+          <button class="btn btn-outline" data-action="materials"><i class="fa-solid fa-folder-open"></i> Materials</button>
+          <button class="btn btn-primary" data-action="enroll"><i class="fa-solid fa-plus"></i> Enroll</button>
+        </div>
+      </div>
+
+      <!-- Cyber Security -->
+      <div class="course-card" data-department="Cyber Security" data-level="100">
+        <div class="course-header">
+          <span class="course-code">CYB 101</span>
+          <span class="course-units">3 Units</span>
+        </div>
+        <h3 class="course-title">Introduction to Cyber Security</h3>
+        <p class="course-desc">Overview of security principles, threats, vulnerabilities, and basic defense mechanisms.</p>
+        <div class="course-meta">
+          <span class="course-tag level">100L</span>
+          <span class="course-tag semester">First</span>
+          <span class="course-tag required">Required</span>
+        </div>
+        <div class="course-actions">
+          <button class="btn btn-outline" data-action="materials"><i class="fa-solid fa-folder-open"></i> Materials</button>
+          <button class="btn btn-primary" data-action="enroll"><i class="fa-solid fa-plus"></i> Enroll</button>
+        </div>
+      </div>
+
+      <div class="course-card" data-department="Cyber Security" data-level="100">
+        <div class="course-header">
+          <span class="course-code">CYB 103</span>
+          <span class="course-units">3 Units</span>
+        </div>
+        <h3 class="course-title">Web Development</h3>
+        <p class="course-desc">Build modern web applications with HTML, CSS, JavaScript, and backend fundamentals.</p>
+        <div class="course-meta">
+          <span class="course-tag level">100L</span>
+          <span class="course-tag semester">Second</span>
+          <span class="course-tag required">Elective</span>
+        </div>
+        <div class="course-actions">
+          <button class="btn btn-outline" data-action="materials"><i class="fa-solid fa-folder-open"></i> Materials</button>
+          <button class="btn btn-primary" data-action="enroll"><i class="fa-solid fa-plus"></i> Enroll</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alternative: Department List View (Uncomment to use instead of grid) -->
+    <!--
+    <div class="department-section">
+      <div class="department-header">
+        <h2><i class="fa-solid fa-computer"></i> Computer Science</h2>
+        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+      </div>
+      <div class="department-list">
+        <ul>
+          <li data-department="Computer Science" data-level="100">
+            <div><strong>CSC 101</strong> Introduction to Computing</div>
+            <span class="course-status active">3 Units</span>
+          </li>
+          <li data-department="Computer Science" data-level="100">
+            <div><strong>CSC 102</strong> Programming Fundamentals</div>
+            <span class="course-status active">3 Units</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    -->
+
+    <!-- Empty State (Hidden by default) -->
+    <div class="empty-state hidden">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h3>No courses found</h3>
+      <p>Try adjusting your search or filters to find what you're looking for.</p>
+      <button class="btn btn-outline mt-2" id="resetFilters">
+        <i class="fa-solid fa-rotate-right"></i> Reset Filters
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<!-- JS -->
+<script src="/assets/js/courses.js"></script>
+
+</body>
+</html>
