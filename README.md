@@ -187,8 +187,7 @@ This project is licensed under the MIT License.
 
 Developed by **Udom Blessing**
 
-GitHub: https://github.com/yourusername
-
+GitHub: https://github.com/BIGUDOM
 ---
 
 ## ⭐ Support
