@@ -381,6 +381,10 @@ function getUserByEmail(email) {
 
 
     /* ================= GET LOGGED IN USER ================= */
+        if (!localStorage.getItem("currentUser")) {
+    window.location.href = "login.html";
+    return;
+}
     const currentUserEmail = localStorage.getItem("currentUser");
 
 const response = getUserByEmail(currentUserEmail);

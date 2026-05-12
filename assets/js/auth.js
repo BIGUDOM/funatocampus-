@@ -565,15 +565,18 @@ function showToast(message, type = "info") {
 // ============ SAVE REGISTERED USER ============
 function saveRegisteredUser(userData) {
 
-  let users =
-    JSON.parse(
-      localStorage.getItem("users")
-    ) || [];
+  let users = JSON.parse(
+    localStorage.getItem("users")
+  );
 
-  const existingUser =
-    users.find(
-      user => user.email === userData.email
-    );
+  // Ensure users is always an array
+  if (!Array.isArray(users)) {
+    users = [];
+  }
+
+  const existingUser = users.find(
+    user => user.email === userData.email
+  );
 
   if (existingUser) {
 
@@ -602,13 +605,16 @@ function saveRegisteredUser(userData) {
 // ============ LOGIN USER ============
 function loginUser(email, password) {
 
-  let users =
-    JSON.parse(localStorage.getItem("users")) || [];
+  let users = JSON.parse(localStorage.getItem("users"));
 
-  const foundUser = users.find(
-    user =>
-      user.email === email &&
-      user.password === password
+  // Ensure users is always an array
+  if (!Array.isArray(users)) {
+    users = [];
+  }
+
+  const foundUser = users.find(user =>
+    user.email === email &&
+    user.password === password
   );
 
   if (foundUser) {
@@ -618,11 +624,10 @@ function loginUser(email, password) {
       JSON.stringify(foundUser)
     );
 
-    // SAVE EMAIL TOO
-localStorage.setItem(
-   "currentUser",
-   foundUser.email
-);
+    localStorage.setItem(
+      "currentUser",
+      foundUser.email
+    );
 
     return {
       status: "success",

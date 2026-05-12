@@ -33,6 +33,11 @@ function getUserByEmail(email) {
 
 
     /* ================= GET LOGGED IN USER ================= */
+    if (!localStorage.getItem("currentUser")) {
+    window.location.href = "login.html";
+    return;
+}
+
     const currentUserEmail = localStorage.getItem("currentUser");
 
 const response = getUserByEmail(currentUserEmail);
@@ -83,29 +88,41 @@ const loggedInUser = response.user;
     }
   
   // ============ MOBILE SIDEBAR TOGGLE ============
-  const menuToggle = document.getElementById('menuToggle');
-  const sidebar = document.querySelector('.sidebar');
-  
-  const overlay = document.createElement('div');
-  overlay.className = 'sidebar-overlay';
-  document.body.appendChild(overlay);
-  
-  function toggleSidebar() {
-    sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
-  }
-  
-  menuToggle?.addEventListener('click', toggleSidebar);
-  overlay.addEventListener('click', toggleSidebar);
-  
-  document.querySelectorAll('.sidebar-link').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768 && sidebar?.classList.contains('active')) {
-        toggleSidebar();
-      }
-    });
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.querySelector('.sidebar');
+
+const overlay = document.createElement('div');
+overlay.className = 'sidebar-overlay';
+document.body.appendChild(overlay);
+
+function toggleSidebar() {
+
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+  menuToggle.classList.toggle('active');
+
+  document.body.style.overflow =
+    sidebar.classList.contains('active')
+      ? 'hidden'
+      : '';
+}
+
+menuToggle.addEventListener('click', toggleSidebar);
+
+overlay.addEventListener('click', toggleSidebar);
+
+document.querySelectorAll('.sidebar-link').forEach(link => {
+  link.addEventListener('click', () => {
+
+    if(window.innerWidth <= 768 &&
+       sidebar.classList.contains('active')) {
+
+      toggleSidebar();
+
+    }
+
   });
+});
   
   // ============ SEARCH & FILTER FUNCTIONALITY ============
   const searchInput = document.querySelector('.search-box input');

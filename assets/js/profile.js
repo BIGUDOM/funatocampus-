@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem("currentUser")) {
+    window.location.href = "login.html";
+    return;
+}
   // ============ REUSABLE SIDEBAR/TOPOBAR LOGIC ============
   const menuToggle = document.getElementById('menuToggle');
   const sidebar = document.querySelector('.sidebar');

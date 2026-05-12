@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem("currentUser")) {
+    window.location.href = "login.html";
+    return;
+}
 
   // ============ GET USER BY EMAIL ============
 function getUserByEmail(email) {
